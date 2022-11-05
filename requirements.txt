@@ -1,0 +1,7 @@
+sanic
+alembic
+psycopg2
+SQLAlchemy
+GeoAlchemy2
+shapely
+mapbox
