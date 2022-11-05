@@ -1,7 +1,7 @@
-sanic
-alembic
-psycopg2
-SQLAlchemy
-GeoAlchemy2
-shapely
-mapbox
+sanic==22.9.1
+alembic==1.8.1
+psycopg2==2.9.5
+SQLAlchemy==1.4.42
+GeoAlchemy2==0.12.5
+Shapely==1.8.5.post1
+geojson==2.5.0

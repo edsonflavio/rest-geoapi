@@ -22,6 +22,10 @@ engine = create_engine(f'postgresql://postgres:12345@localhost:5432/postgis_32_s
 Session = sessionmaker(bind=engine)
 session = Session()
 
+@app.route("/", methods=["GET"])
+async def retrieve_one_edificacoes(request):
+    return response.json({"Resposta": "Geoserviço REST online"}, status=200)
+
 @app.route("/edificacoes/<edificacao_id:int>", methods=["GET"])
 async def retrieve_one_edificacoes(request, edificacao_id):
     edificacao = session.query(Edificacao).get(edificacao_id)
