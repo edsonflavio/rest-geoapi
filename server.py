@@ -59,6 +59,13 @@ async def retrieve_edificacoes(request):
         del props["id"]
         feature = geojson.Feature(id=feature_id, geometry=shapely.wkt.loads(wkt.wkt), properties=props)
         feature_collection["features"].append(feature)
+
+    if 'text/html' in request.headers.get("accept").split(","):
+        with open('map.html') as map_file:
+            map_file_content = map_file.read()
+            map_file_content = map_file_content.replace('const geojsonObject = {}', f'const geojsonObject = {json.dumps(feature_collection)}')
+            return response.html(map_file_content)
+
     return response.json(feature_collection, status=200)
 
 @app.route("/edificacoes", methods=["POST"])
