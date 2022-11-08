@@ -23,6 +23,6 @@ Para que o geoserviço começe a receber requisições, execute o comando abaixo
 Depois disso será possível acessá-lo através do endereço http://localhost:8000 usando qualquer cliente web como o postman ou qualquer navegador
 
 ### Editar código
-Para editar o código recomenda-se o uso do pychar community 
+Para editar o código recomenda-se o uso do pycharm community 
     
 https://www.jetbrains.com/pt-br/pycharm/download/#section=windows
