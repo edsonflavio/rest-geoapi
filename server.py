@@ -58,11 +58,13 @@ async def deletar_edificacao(request, edificacao_id):
 @app.route("/edificacoes", methods=["GET"])
 def recuperar_edificacoes(request):
 
-    # if 'text/html' in request.headers.get("accept").split(","):
-    #     with open('map.html') as map_file:
-    #         map_file_content = map_file.read()
-    #         map_file_content = map_file_content.replace('const geojsonObject = {}', f'const geojsonObject = {json.dumps(feature_collection)}')
-    #         return response.html(map_file_content)
+    if 'text/html' in request.headers.get("accept").split(","):
+        with open('map.html') as map_file:
+            map_file_content = map_file.read()
+            with open('edificacoes.json', 'r') as edificacoes_file:
+                feature_collection = json.loads(edificacoes_file.read())
+                map_file_content = map_file_content.replace('const geojsonObject = {}', f'const geojsonObject = {json.dumps(feature_collection)}')
+                return response.html(map_file_content)
 
     return response.file('edificacoes.json', status=200, mime_type="application/geo+json")
 
