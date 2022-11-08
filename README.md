@@ -24,4 +24,5 @@ Depois disso será possível acessá-lo através do endereço http://localhost:8
 
 ### Editar código
 Para editar o código recomenda-se o uso do pychar community 
+    
 https://www.jetbrains.com/pt-br/pycharm/download/#section=windows
