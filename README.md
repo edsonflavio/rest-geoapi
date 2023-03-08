@@ -2,8 +2,11 @@
 
 ## Para a correta execução do serviço é necessário que os passos a seguir seja executados:
 
-### Instalação do python versão 3.8.10
-https://www.python.org/downloads/release/python-3810/
+### Instalação do python versão 3.11.2
+https://www.python.org/downloads/release/python-3112/
+
+### Instalação do postgresql com postgis
+https://www.enterprisedb.com/downloads/postgres-postgresql-downloads
 
 ### Instalação do postman
 Para o consumo da API será usado o cliente web postman, que permite realizar requisições HTTP completas (manipulando cabeçalho, corpo e método da requisição)

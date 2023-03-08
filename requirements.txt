@@ -1,1 +1,6 @@
-sanic==22.9.1
+SQLAlchemy
+sanic
+alembic
+GeoAlchemy2
+psycopg2
+shapely
