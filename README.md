@@ -13,6 +13,13 @@ Para o consumo da API será usado o cliente web postman, que permite realizar re
 
 https://www.postman.com/downloads/?utm_source=postman-home
 
+### Criação do ambiente virtual python
+Para isolar o ambiente de desenvolvimento deste projeto da instalação original do python execute os seguintes passos usando o prompt de comando do windows
+
+    python -m venv <nome-do-ambiente>
+
+    <nome-do-ambiente>\Scripts\activate
+
 ### Instalação das bibliotecas python necessárias
 Depois de fazer o download deste projeto, através do prompt de comando do windows, acesse a pasta do projeto usando o comando 'cd <nome-da-pasta>' e depois execute o seguinte comando
 
