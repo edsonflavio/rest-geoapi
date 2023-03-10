@@ -5,7 +5,7 @@
 ### Instalação do python versão 3.11.2
 https://www.python.org/downloads/release/python-3112/
 
-### Instalação do postgresql com postgis
+### Instalação do postgresql 15.2.1 com postgis 3.3.2
 https://www.enterprisedb.com/downloads/postgres-postgresql-downloads
 
 ### Instalação do postman
