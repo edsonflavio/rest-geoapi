@@ -56,8 +56,8 @@ async def create_edificacoes(request):
 @app.route("/edificacoes/<id:int>", methods=["GET"])
 async def get_edificacao(request, id):
     stmt = select(Edificacao.id, Edificacao.name, ST_AsGeoJSON(Edificacao.geom)).where(Edificacao.id == id)
-    with engine.connect() as conn:
-        resp = conn.execute(stmt).first()
+    with Session(engine) as session:
+        resp = session.execute(stmt).first()
         if resp is None:
             return response.json({'Resultado': 'Recurso não encontrado'}, status=404)
 

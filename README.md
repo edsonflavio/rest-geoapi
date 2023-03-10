@@ -18,13 +18,6 @@ Depois de fazer o download deste projeto, através do prompt de comando do windo
 
     pip install -r requirements.txt
 
-### Executar serviço
-Para que o geoserviço começe a receber requisições, execute o comando abaixo
-
-    python server.py
-
-Depois disso será possível acessá-lo através do endereço http://localhost:8000 usando qualquer cliente web como o postman ou qualquer navegador
-
 ### Editar código
 Para editar o código recomenda-se o uso do pycharm community 
     

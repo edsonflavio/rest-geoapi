@@ -1,5 +1,6 @@
 python -m venv env_test_rest_geoapi (cria ambiente virtual chamado 'env_test_rest_geoapi', esse ambiente é isolado da instalação padrão do python, isso previne incompatibilidade de bibliotecas)
 env_test_rest_geoapi\Scripts\activate (ativar ambiente virtual)
+python.exe -m pip install --upgrade pip
 pip install sanic (Biblioteca para implementação de servidores HTTP em python )
 pip install sqlalchemy (Biblioteca de mapeamento objeto relacional (neste caso mapeamento não tem nada relacionado a dados geoespaciais). Ele faz a comunicação entre as tabelas no banco de dados e as classes no python e vice versa)
 pip install geoalchemy2 (Biblioteca para interagir com a parte geoespacial do banco de dados)
@@ -16,3 +17,6 @@ https://alembic.sqlalchemy.org/en/latest/tutorial.html
 https://docs.sqlalchemy.org/en/20/core/engines.html
 https://docs.sqlalchemy.org/en/20/orm/quickstart.html
 https://docs.sqlalchemy.org/en/20/tutorial/data_select.html
+
+Erro ao instalar PyGreSQL: error: Microsoft Visual C++ 14.0 or greater is required. Get it with "Microsoft C++ Build Tools": https://visualstudio.microsoft.com/visual-cpp-build-tools/
+Solução: https://visualstudio.microsoft.com/pt-br/visual-cpp-build-tools/
