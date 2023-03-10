@@ -1,6 +1,5 @@
 SQLAlchemy
 sanic
-alembic
 GeoAlchemy2
-PyGreSQL
+psycopg2
 shapely

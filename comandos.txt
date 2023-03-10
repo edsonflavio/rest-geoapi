@@ -1,10 +1,9 @@
-python -m venv env_test_rest_geoapi (cria ambiente virtual chamado 'env_test_rest_geoapi', esse ambiente é isolado da instalação padrão do python, isso previne incompatibilidade de bibliotecas)
+python -m venv env_rest_geoapi (cria ambiente virtual chamado 'env_test_rest_geoapi', esse ambiente é isolado da instalação padrão do python, isso previne incompatibilidade de bibliotecas)
 env_test_rest_geoapi\Scripts\activate (ativar ambiente virtual)
 python.exe -m pip install --upgrade pip
 pip install sanic (Biblioteca para implementação de servidores HTTP em python )
 pip install sqlalchemy (Biblioteca de mapeamento objeto relacional (neste caso mapeamento não tem nada relacionado a dados geoespaciais). Ele faz a comunicação entre as tabelas no banco de dados e as classes no python e vice versa)
 pip install geoalchemy2 (Biblioteca para interagir com a parte geoespacial do banco de dados)
-pip install alembic (Biblioteca de migração de banco de dados, a função dele é criar tabelas no banco de dados equivalentes as classes python)
 pip install shapely (Biblioteca para manipulação de geometrias)
 pip install psycopg2 = Biblioteca adaptadora para comunicação entre o python e o postgresql
 
