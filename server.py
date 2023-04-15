@@ -15,15 +15,15 @@ app = Sanic(__name__)
 async def list_edificacoes(request):
     features = []
 
-    stmt = select(Edificacao.id, Edificacao.name, ST_AsGeoJSON(Edificacao.geom)).order_by(Edificacao.id)
+    stmt = select(Edificacao.id, Edificacao.nome, ST_AsGeoJSON(Edificacao.geom)).order_by(Edificacao.id)
     with engine.connect() as conn:
         rows = conn.execute(stmt)
-        for id, name, geometry in rows:
+        for id, nome, geometry in rows:
             feature = {
                 "id": f"{id}",
                 "type": "Feature",
                 "properties": {
-                    "nome": f"{name}"
+                    "nome": f"{nome}"
                 },
                 "geometry": json.loads(geometry)
             }
@@ -45,7 +45,7 @@ async def list_edificacoes(request):
 async def create_edificacoes(request):
 
     geom = shape(request.json['geometry'])
-    edificacao = Edificacao(name=request.json['properties']['nome'], geom=f"SRID=4674;{geom}")
+    edificacao = Edificacao(nome=request.json['properties']['nome'], geom=f"SRID=4674;{geom}")
 
     with Session(engine) as session:
         session.add(edificacao)
@@ -55,19 +55,19 @@ async def create_edificacoes(request):
 
 @app.route("/edificacoes/<id:int>", methods=["GET"])
 async def get_edificacao(request, id):
-    stmt = select(Edificacao.id, Edificacao.name, ST_AsGeoJSON(Edificacao.geom)).where(Edificacao.id == id)
+    stmt = select(Edificacao.id, Edificacao.nome, ST_AsGeoJSON(Edificacao.geom)).where(Edificacao.id == id)
     with Session(engine) as session:
         resp = session.execute(stmt).first()
         if resp is None:
             return response.json({'Resultado': 'Recurso não encontrado'}, status=404)
 
-        id, name, geometry = resp
+        id, nome, geometry = resp
 
         feature = {
             "id": f"{id}",
             "type": "Feature",
             "properties": {
-                "nome": f"{name}"
+                "nome": f"{nome}"
             },
             "geometry": json.loads(geometry)
         }
@@ -79,7 +79,7 @@ async def update_edificacao(request, id):
 
     with Session(engine) as session:
         edificacao = session.get(Edificacao, id)
-        edificacao.name = request.json["properties"]["nome"]
+        edificacao.nome = request.json["properties"]["nome"]
         session.add(edificacao)
         session.commit()
     return response.json(body=None, status=204)
