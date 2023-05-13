@@ -29,3 +29,21 @@ Depois de fazer o download deste projeto, através do prompt de comando do windo
 Para editar o código recomenda-se o uso do pycharm community 
     
 https://www.jetbrains.com/pt-br/pycharm/download/#section=windows
+    
+## Exercícios
+    
+### 1. Retornar a área do poligono
+#### DICA: quando precisar retornar valores em metros (cálculo de área ou distância, por exemplo), converter a geometria para UTM (SRID=31982) antes
+    
+### 2. Retornar o centroid de uma edificacao
+#### DICA: Sempre que precisarmos retornar uma geometria é interessante utilizar ST_AsGeoJSON para converter a geometria
+
+### 3. Retornar um buffer do poligono em geojson
+    
+### 4. Retornar um buffer do poligono em html representado no mapa
+#### IMPORTANTE: O template para criação do mapa espera objetos do tipo Feature ou FeatureCollection, então deve-se adicionar a geometria a estrutura da Feature antes de retornar o HTML
+#### Exemplos de GeoJSON: https://en.wikipedia.org/wiki/GeoJSON
+    
+### 5. Determinar a distância entre duas edificacoes
+    
+### 6. Retornar true ou false em resposta a operação crosses ou contains entre duas geometrias (passando o id da geometria A e da geometria B)
