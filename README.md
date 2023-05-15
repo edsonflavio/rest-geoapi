@@ -47,3 +47,6 @@ https://www.jetbrains.com/pt-br/pycharm/download/#section=windows
 ### 5. Determinar a distância entre duas edificacoes
     
 ### 6. Retornar true ou false em resposta a operação crosses ou contains entre duas geometrias (passando o id da geometria A e da geometria B)
+    
+### 7. Retornar subconjunto de edificações que estiverem completamente dentro do polígono passado como parâmetro via URL
+#### Endpoint deve responder corretamente a requisição GET http://localhost:8500/edificacoes/within/[[[-49.2309,-25.4502],[-49.2320,-25.4502],[-49.2320,-25.4511],[-49.2309,-25.4511],[-49.2309,-25.4502]]]
