@@ -8,7 +8,8 @@ from shapely.geometry import shape
 from models import Edificacao
 from geoalchemy2.functions import ST_AsGeoJSON
 
-engine = create_engine("postgresql://postgres:postgres@localhost/postgis_33_sample", echo=True)
+#engine = create_engine("postgresql://postgres:postgres@localhost/postgis_33_sample", echo=True)
+engine = create_engine("postgresql://postgres:postgres@172.17.0.2/postgres", echo=True)
 app = Sanic(__name__)
 
 @app.route("/edificacoes", methods=["GET"])
@@ -94,4 +95,4 @@ async def delete_edificacao(request, id):
     return response.json(body=None, status=204)
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=8500)
+    app.run(host="0.0.0.0", dev=True, port=8050)
