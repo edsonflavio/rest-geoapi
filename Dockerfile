@@ -6,8 +6,8 @@ COPY . /code
 
 WORKDIR /code
 RUN apt install libgdal-dev -y 
-RUN . $VIRTUAL_ENV_PATH/bin/activate && \
-    pip install --upgrade pip && \
+RUN . $VIRTUAL_ENV_PATH/bin/activate 
+RUN pip install --upgrade pip && \
     pip install wheel numpy fiona && \
     #pip install GDAL=="$(gdal-config --version).*" && \
     pip install -r requirements.txt
@@ -15,4 +15,4 @@ RUN . $VIRTUAL_ENV_PATH/bin/activate && \
 #Expoe a porta 8000 para acesso externo
 EXPOSE 8050
 
-CMD [ "python3" ]
+CMD [ "python3", "server.py" ]

@@ -1,0 +1,49 @@
+services:
+  db:
+    container_name: postgis
+    image: postgis/postgis:15-3.3
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres #optional (specify default database instead of $POSTGRES_DB)
+    ports:
+      - 5432
+    restart: always
+
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4:latest
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=edson.flavio@ufpr.br
+      - PGADMIN_DEFAULT_PASSWORD=pgadmin
+    ports:
+      - "8000:80"
+    restart: always
+  api:
+    container_name: api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    #image: efsouza/webgis:django_app-ufpr.v01
+#    env_file:
+#      - .env
+#      - secrets.env
+    environment:
+      POSTGRES_HOST: db
+      POSTGRES_DB: postgres
+      POSTGRES_PORT: 5432
+    command: >
+        bash -c "
+                apt-get update && \
+                apt-get install -y inetutils-ping iproute2 && \
+                ping -c 5 db 
+                "
+    depends_on:
+      - db
+    ports:
+      - "8050:8050"
+#    networks:
+#      - backend
+    volumes:
+#      - .:/code
+      - /workspace/rest-geoapi:/code
